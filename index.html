@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bakfiets.me</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      padding: 1em;
+      gap: 1em;
+    }
+
+    .column {
+      flex: 1;
+      padding: 1em;
+      border-radius: 8px;
+    }
+
+    .column h2 {
+      margin-top: 0;
+    }
+
+    /* Responsive layout for mobile */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      header {
+        font-size: 1.2em;
+      }
+    }
+
+    /* Image + circle setup */
+    .image-wrapper {
+        position: relative;
+        width: 100%;   
+        overflow: hidden;
+    }
+
+    #bike {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .click-circle {
+        position: absolute;
+        top: 46%;
+        left: 38%;
+        width: 30vw;
+        height: 35vw;
+        border-radius: 50%;
+        background: rgba(255, 0, 0, 0); /* For debugging, make transparent later */
+        cursor: auto;
+}
+
+    .click-circle:hover {
+      background: rgba(255, 0, 0, 0);
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    site under contruction
+  </header>
+
+  <div class="container">
+    <div class="column">
+        
+        <div class="image-wrapper">
+            <img src="bakfiets logo.png" alt="bike" id="bike">
+            <div class="click-circle" id="target"></div>
+    </div>
+
+    <div class="column">
+    Ik ben momenteel bezig met deze website in elkaar beunen. Als je wilt zien hoe de bakfiets ranking ervoor staat klik dan 3 keer op het rechter wiel.
+    </div>
+
+<script>
+    let clickCount = 0;
+    let clickTimeout;
+
+    const target = document.getElementById('target');
+
+    target.addEventListener('click', () => {
+      clickCount++;
+      clearTimeout(clickTimeout);
+
+      if (clickCount === 3) {
+        window.location.href = 'https://docs.google.com/spreadsheets/d/1tbpLxljHALYtfRDufWSUB9UZ-LeTuCklg8he1TH7ijM/edit?usp=sharing'; // Change this to your actual link
+      } else {
+        clickTimeout = setTimeout(() => {
+          clickCount = 0;
+        }, 2000); // reset after 2 seconds
+      }
+    });
+</script>
+
+
+</body>
+</html>
